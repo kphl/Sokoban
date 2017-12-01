@@ -8,6 +8,6 @@ namespace Sokoban
 {
     public interface IMovable
     {
-        bool Move(Direction d);
+        bool Move(Direction d, Box box);
     }
 }

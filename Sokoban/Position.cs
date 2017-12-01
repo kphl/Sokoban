@@ -16,5 +16,10 @@ namespace Sokoban
             X = x;
             Y = y;
         }
+
+        public static Position operator +(Position p1, Position p2)
+        {
+            return new Position(p1.X + p2.X, p1.Y + p2.Y);
+        }
     }
 }

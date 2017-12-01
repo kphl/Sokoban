@@ -11,8 +11,13 @@ namespace Sokoban
     {
         public static readonly Image IMAGE_TARGET = Properties.Resources.target;
 
-        public Target(Position p, Entity e) : base(p, e)
-        { }
+        public Target(Position p, Entity e = null) : base(p, e)
+        {
+            if (Entity is Crate)
+            {
+                ((Crate)Entity).Status = true;
+            }
+        }
 
         public override List<Image> Draw()
         {

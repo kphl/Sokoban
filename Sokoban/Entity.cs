@@ -9,7 +9,7 @@ namespace Sokoban
 {
     public abstract class Entity
     {
-        protected Position Pos { get; set; }
+        public Position Pos { get; set; }
         protected List<Image> Images { get; set; }
 
         public Entity(Position p, List<Image> assets)

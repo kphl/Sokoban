@@ -19,9 +19,12 @@ namespace Sokoban
 
         private Direction direction;
 
-        public Player(Position p) : base(p, new List<Image>(ASSETS))
+        public Grid Grid { get; set; }
+
+        public Player(Position p, Grid g) : base(p, new List<Image>(ASSETS))
         {
             direction = Direction.DOWN;
+            Grid = g;
         }
 
         public override Image Draw()
@@ -49,8 +52,47 @@ namespace Sokoban
             return i;
         }
 
-        public bool Move(Direction d)
+        public bool Move(Direction d, Box box)
         {
+            direction = d;
+
+            if (box.Entity == null)
+            {
+                return true;
+            }
+            else if (box.Entity is Crate)
+            {
+                Crate crate = box.Entity as Crate;
+                Position pos = null;
+
+                switch (d)
+                {
+                    case Direction.DOWN:
+                        pos = new Position(0, 1);
+                        break;
+                    case Direction.UP:
+                        pos = new Position(0, -1);
+                        break;
+                    case Direction.LEFT:
+                        pos = new Position(-1, 0);
+                        break;
+                    case Direction.RIGHT:
+                        pos = new Position(1, 0);
+                        break;
+                }
+
+                Box start = Grid.Boxes[crate.Pos.Y, crate.Pos.X];
+                Position p = pos + crate.Pos;
+                Box end = Grid.Boxes[p.Y, p.X];
+
+                if (crate.Move(d, end))
+                {
+                    crate.Pos = p;
+                    Grid.Move(start, end);
+                    return true;
+                }
+            }
+
             return false;
         }
     }

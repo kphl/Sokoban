@@ -9,19 +9,22 @@ namespace Sokoban
 {
     public class Crate : Entity, IMovable
     {
-        public static readonly Image[] ASSETS = { Properties.Resources.crate };
+        public static readonly Image[] ASSETS = { Properties.Resources.crate, Properties.Resources.crate_ok };
+        public bool Status { get; set; }
 
         public Crate(Position p) : base(p, new List<Image>(ASSETS))
-        { }
+        {
+            Status = false;
+        }
 
         public override Image Draw()
         {
-            return Images[0];
+            return Images[Status ? 1 : 0];
         }
 
-        public bool Move(Direction d)
+        public bool Move(Direction d, Box box)
         {
-            return false;
+            return box.Entity == null;
         }
     }
 }
