@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A5A96762-8AE1-43A7-98E2-68A694F939BD}</ProjectGuid>
+    <ProjectGuid>{DEC9C8EE-6700-42B7-B68F-93361407107C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>projet_sokoban</RootNamespace>
-    <AssemblyName>projet-sokoban</AssemblyName>
+    <RootNamespace>Sokoban</RootNamespace>
+    <AssemblyName>Sokoban</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,14 +46,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Box.cs" />
+    <Compile Include="Crate.cs" />
+    <Compile Include="Direction.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entity.cs" />
+    <Compile Include="Game.cs" />
+    <Compile Include="Grid.cs" />
+    <Compile Include="IMovable.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="Position.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Target.cs" />
+    <Compile Include="Wall.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -65,6 +76,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -78,6 +90,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\player_13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\player_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\player_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\player_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ground_01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\environment_08.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\crate_44.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\crate_04.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\crate_05.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\block_02.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

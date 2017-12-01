@@ -8,18 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace projet_sokoban
+namespace Sokoban
 {
     public partial class Form1 : Form
     {
+        Bitmap B;
+        Graphics G;
+
         public Form1()
         {
             InitializeComponent();
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
+            B = new Bitmap(640, 640);
+            G = Graphics.FromImage(B);
+            G.Clear(Color.White);
+            pictureBox1.Image = B;
         }
     }
 }
