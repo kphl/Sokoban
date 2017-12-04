@@ -1,10 +1,10 @@
 WWWWWWWWWW
-WXXXXXXXXW
+W........W
 WWWWWWWWWW
-W...X.X..W
+W........W
 WWWWWWWWWW
-W.P.C.T..W
+W..PC.T..W
 WWWWWWWWWW
-W.X....X.W
-W...XX...W
+W........W
+W........W
 WWWWWWWWWW

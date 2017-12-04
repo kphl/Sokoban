@@ -21,5 +21,14 @@ namespace Sokoban
         {
             return new Position(p1.X + p2.X, p1.Y + p2.Y);
         }
+
+        public static bool operator ==(Position p1, Position p2)
+        {
+            return p1.X == p2.X && p1.Y == p2.Y;
+        }
+        public static bool operator !=(Position p1, Position p2)
+        {
+            return p1.X != p2.X || p1.Y != p2.Y;
+        }
     }
 }

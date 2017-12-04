@@ -20,12 +20,13 @@ namespace Sokoban
         private int CurrentLevel { get; set; }
 
         public Grid Grid { get; private set; }
-        //public List<Coup> coups;
+        public List<Movement> moves;
 
         public Game()
         {
             CurrentLevel = 1;
             LoadLevel(CurrentLevel);
+            moves = new List<Movement>();
         }
 
         public void ResetLevel()
@@ -41,6 +42,7 @@ namespace Sokoban
 
         public void LoadLevel(int level)
         {
+            moves = new List<Movement>();
             Grid = new Grid(Properties.Resources.ResourceManager.GetObject("level_" + level).ToString().Split('\n'));
         }
 
@@ -71,9 +73,47 @@ namespace Sokoban
 
             if (player.Move(d, end))
             {
-                player.Pos = p;
-                Grid.Move(start, end);
+                Movement m = new Movement(start, end, player);
+                bool ok = true;
+
+                if (end.Entity is Crate)
+                {
+                    Crate c = end.Entity as Crate;
+                    Box startC = Grid.Boxes[c.Pos.Y, c.Pos.X];
+                    Position pC = pos + c.Pos;
+                    Box endC = Grid.Boxes[pC.Y, pC.X];
+
+                    if (c.Move(d, endC))
+                    {
+                        Grid.Move(c, startC, endC);
+                        Movement mC = new Movement(startC, endC, c);
+                        m.CrateMovement = mC;
+                    }
+                    else
+                    {
+                        ok = false;
+                    }
+                }
+
+                if (ok)
+                {
+                    moves.Add(m);
+                    Grid.Move(player, start, end);
+                }
+
             }
+        }
+
+        public void Undo()
+        {
+            if (moves.Count == 0) return;
+            Movement m = moves.Last();
+            Grid.Move(m.Entity, m.End, m.Start);
+            if(m.CrateMovement != null)
+            {
+                Grid.Move(m.CrateMovement.Entity, m.CrateMovement.End, m.CrateMovement.Start);
+            }
+            moves.Remove(m);
         }
 
         public void Event(Keys key)

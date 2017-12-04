@@ -8,7 +8,7 @@ namespace Sokoban
 {
     public class Grid
     {
-        public Box[,] Boxes { get; private set; }
+        public Box[,] Boxes { get; set; }
 
         public Grid(String[] level)
         {
@@ -70,8 +70,9 @@ namespace Sokoban
             return crates;
         }
 
-        public void Move(Box start, Box end)
+        public void Move(Entity e, Box start, Box end)
         {
+            e.Pos = end.Pos;
             end.Entity = start.Entity;
             start.Entity = null;
 

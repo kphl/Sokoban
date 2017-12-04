@@ -92,14 +92,14 @@ namespace Sokoban.Properties {
         
         /// <summary>
         ///   Recherche une chaîne localisée semblable à WWWWWWWWWW
-        ///WWWWWWWWWW
+        ///WXXXXXXXXW
         ///WWWWWWWWWW
         ///W...X.X..W
         ///WWWWWWWWWW
         ///W.P.C.T..W
         ///WWWWWWWWWW
-        ///WWWWWWWWWW
-        ///WWWWWWWWWW
+        ///W.X....X.W
+        ///W...XX...W
         ///WWWWWWWWWW.
         /// </summary>
         internal static string level_1 {
@@ -110,14 +110,14 @@ namespace Sokoban.Properties {
         
         /// <summary>
         ///   Recherche une chaîne localisée semblable à WWWWWWWWWW
-        ///W........W
-        ///W........W
-        ///W..P.C...W
-        ///W....TX..W
-        ///W........W
-        ///W.C......W
-        ///W.....T..W
-        ///W........W
+        ///W....WWWWW
+        ///W..W.C.WWW
+        ///W...X..WWW
+        ///W...WW.WWW
+        ///W..X.PTWWW
+        ///WWWWWWWWWW
+        ///WWWWWWWWWW
+        ///WWWWWWWWWW
         ///WWWWWWWWWW.
         /// </summary>
         internal static string level_2 {
@@ -182,6 +182,16 @@ namespace Sokoban.Properties {
         internal static System.Drawing.Bitmap target {
             get {
                 object obj = ResourceManager.GetObject("target", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap undo {
+            get {
+                object obj = ResourceManager.GetObject("undo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

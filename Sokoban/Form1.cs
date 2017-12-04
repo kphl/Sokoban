@@ -56,5 +56,12 @@ namespace Sokoban
             game.Draw(G);
             pictureBox1.Invalidate();
         }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            game.Undo();
+            game.Draw(G);
+            pictureBox1.Invalidate();
+        }
     }
 }
