@@ -10,34 +10,38 @@ namespace Sokoban
 {
     class Game
     {
-        string[] lvl1 =
-        {
-            "WWWWWWWWWW",
-            "W........W",
-            "W........W",
-            "W..P.C...W",
-            "W....TX..W",
-            "W........W",
-            "W.C......W",
-            "W.....T..W",
-            "W........W",
-            "WWWWWWWWWW"
-        };
-
         public static readonly Dictionary<Keys, Direction> DIC_KEY_DIR = new Dictionary<Keys, Direction>(){
             { Keys.Down, Direction.DOWN },
             { Keys.Up, Direction.UP },
             { Keys.Left, Direction.LEFT },
             { Keys.Right, Direction.RIGHT }
-
         };
+
+        private int CurrentLevel { get; set; }
 
         public Grid Grid { get; private set; }
         //public List<Coup> coups;
 
         public Game()
         {
-            Grid = new Grid(lvl1);
+            CurrentLevel = 1;
+            LoadLevel(CurrentLevel);
+        }
+
+        public void ResetLevel()
+        {
+            LoadLevel(CurrentLevel);
+        }
+
+        public void LoadNextLevel()
+        {
+            ++CurrentLevel;
+            LoadLevel(CurrentLevel);
+        }
+
+        public void LoadLevel(int level)
+        {
+            Grid = new Grid(Properties.Resources.ResourceManager.GetObject("level_" + level).ToString().Split('\n'));
         }
 
         public void Move(Direction d)
@@ -77,11 +81,6 @@ namespace Sokoban
             if (DIC_KEY_DIR.Keys.Contains(key))
             {
                 Move(DIC_KEY_DIR[key]);
-
-                if (CheckSuccess())
-                {
-                    throw new Exception("You Win \\o/");
-                }
             }
         }
 

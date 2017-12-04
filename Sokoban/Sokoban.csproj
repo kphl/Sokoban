@@ -127,6 +127,12 @@
   <ItemGroup>
     <None Include="Resources\font-awesome_4-7-0_refresh_50_0_000000_none.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\level_1.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\level_2.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

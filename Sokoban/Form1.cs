@@ -30,18 +30,31 @@ namespace Sokoban
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
+            if (game.CheckSuccess())
+            {
+                game.LoadNextLevel();
+                game.Draw(G);
+                pictureBox1.Invalidate();
+                return;
+            }
+
             game.Event(e.KeyCode);
             G.Clear(Color.White);
             game.Draw(G);
+
+            if (game.CheckSuccess())
+            {
+                G.DrawString("Yeah !", new Font("Comics Sans MS", 22), new SolidBrush(Color.Red), 50, 50);
+            }
+
             pictureBox1.Invalidate();
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            game = new Game();
+            game.ResetLevel();
             game.Draw(G);
             pictureBox1.Invalidate();
-
         }
     }
 }

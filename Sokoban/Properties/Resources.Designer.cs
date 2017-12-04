@@ -91,6 +91,42 @@ namespace Sokoban.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à WWWWWWWWWW
+        ///WWWWWWWWWW
+        ///WWWWWWWWWW
+        ///W...X.X..W
+        ///WWWWWWWWWW
+        ///W.P.C.T..W
+        ///WWWWWWWWWW
+        ///WWWWWWWWWW
+        ///WWWWWWWWWW
+        ///WWWWWWWWWW.
+        /// </summary>
+        internal static string level_1 {
+            get {
+                return ResourceManager.GetString("level_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à WWWWWWWWWW
+        ///W........W
+        ///W........W
+        ///W..P.C...W
+        ///W....TX..W
+        ///W........W
+        ///W.C......W
+        ///W.....T..W
+        ///W........W
+        ///WWWWWWWWWW.
+        /// </summary>
+        internal static string level_2 {
+            get {
+                return ResourceManager.GetString("level_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap player_down {
