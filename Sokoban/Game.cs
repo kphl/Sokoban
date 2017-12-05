@@ -17,6 +17,8 @@ namespace Sokoban
             { Keys.Right, Direction.RIGHT }
         };
 
+        public const int MAX_LEVEL = 4;
+
         private int CurrentLevel { get; set; }
 
         public Grid Grid { get; private set; }
@@ -37,6 +39,11 @@ namespace Sokoban
         public void LoadNextLevel()
         {
             ++CurrentLevel;
+            if (CurrentLevel > MAX_LEVEL)
+            {
+                throw new Exception("You win !");
+            }
+
             LoadLevel(CurrentLevel);
         }
 
@@ -73,7 +80,7 @@ namespace Sokoban
 
             if (player.Move(d, end))
             {
-                Movement m = new Movement(start, end, player);
+                Movement m = new Movement(start, end, player, d);
                 bool ok = true;
 
                 if (end.Entity is Crate)
@@ -85,8 +92,8 @@ namespace Sokoban
 
                     if (c.Move(d, endC))
                     {
-                        Grid.Move(c, startC, endC);
-                        Movement mC = new Movement(startC, endC, c);
+                        Grid.Move(startC, endC);
+                        Movement mC = new Movement(startC, endC, c, d);
                         m.CrateMovement = mC;
                     }
                     else
@@ -98,7 +105,7 @@ namespace Sokoban
                 if (ok)
                 {
                     moves.Add(m);
-                    Grid.Move(player, start, end);
+                    Grid.Move(start, end);
                 }
 
             }
@@ -108,10 +115,13 @@ namespace Sokoban
         {
             if (moves.Count == 0) return;
             Movement m = moves.Last();
-            Grid.Move(m.Entity, m.End, m.Start);
+            Grid.Move(m.End, m.Start);
+
+            ((Player)m.Entity).Move(m.Direction, m.End);
+
             if(m.CrateMovement != null)
             {
-                Grid.Move(m.CrateMovement.Entity, m.CrateMovement.End, m.CrateMovement.Start);
+                Grid.Move(m.CrateMovement.End, m.CrateMovement.Start);
             }
             moves.Remove(m);
         }

@@ -49,6 +49,7 @@
     <Compile Include="Box.cs" />
     <Compile Include="Crate.cs" />
     <Compile Include="Direction.cs" />
+    <Compile Include="Ground.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +137,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\undo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\level_3.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\level_4.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\level_5.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icomoon-free_2014-12-23_undo2_50_0_ffffff_none.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

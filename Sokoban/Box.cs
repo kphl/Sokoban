@@ -9,7 +9,7 @@ namespace Sokoban
 {
     public class Box
     {
-        public static readonly Image IMAGE_GROUND = Properties.Resources.ground;
+        //public static readonly Image IMAGE_GROUND = Properties.Resources.ground;
 
         public Entity Entity { get; set; }
         public Position Pos { get; }
@@ -22,15 +22,7 @@ namespace Sokoban
 
         public virtual List<Image> Draw()
         {
-            List<Image> imgs = new List<Image>();
-            imgs.Add(IMAGE_GROUND);
-
-            if (Entity != null)
-            {
-                imgs.Add(Entity.Draw());
-            }
-
-            return imgs;
+            return new List<Image>();
         }
     }
 }

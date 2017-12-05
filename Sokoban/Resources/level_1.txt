@@ -1,10 +1,7 @@
-WWWWWWWWWW
-W........W
-WWWWWWWWWW
-W........W
-WWWWWWWWWW
-W..PC.T..W
-WWWWWWWWWW
-W........W
-W........W
-WWWWWWWWWW
+_______
+WWW____
+WPW____
+W.WWWWW
+W.C..TW
+WWWWWWW
+_______

@@ -19,9 +19,9 @@ namespace Sokoban
         public Form1()
         {
             InitializeComponent();
-            B = new Bitmap(640, 640);
+            B = new Bitmap(448, 448);
             G = Graphics.FromImage(B);
-            G.Clear(Color.White);
+            G.Clear(Color.Pink);
             pictureBox1.Image = B;
             game = new Game();
             game.Draw(G);
@@ -30,23 +30,33 @@ namespace Sokoban
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (game.CheckSuccess())
+            G.Clear(Color.Pink);
+
+            if(e.KeyCode == Keys.Back)
             {
-                game.LoadNextLevel();
-                game.Draw(G);
-                pictureBox1.Invalidate();
+                pictureBox3_Click(sender, e);
+            }
+
+            while(game.CheckSuccess())
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    game.LoadNextLevel();
+                    game.Draw(G);
+                    label1.Text = game.moves.Count.ToString();
+                    pictureBox1.Invalidate();
+                }
                 return;
             }
 
             game.Event(e.KeyCode);
-            G.Clear(Color.White);
             game.Draw(G);
 
             if (game.CheckSuccess())
             {
-                G.DrawString("Yeah !", new Font("Comics Sans MS", 22), new SolidBrush(Color.Red), 50, 50);
+                G.DrawString("Yeah !", new Font("Comic Sans MS", 22), new SolidBrush(Color.Red), 50, 50);
             }
-
+            label1.Text = game.moves.Count.ToString();
             pictureBox1.Invalidate();
         }
 
@@ -54,14 +64,18 @@ namespace Sokoban
         {
             game.ResetLevel();
             game.Draw(G);
+            label1.Text = game.moves.Count.ToString();
             pictureBox1.Invalidate();
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
+            pictureBox3.Enabled = false;
             game.Undo();
             game.Draw(G);
+            label1.Text = game.moves.Count.ToString();
             pictureBox1.Invalidate();
+            pictureBox3.Enabled = true;
         }
     }
 }

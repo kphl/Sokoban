@@ -7,26 +7,18 @@ using System.Threading.Tasks;
 
 namespace Sokoban
 {
-    class Target : Box
+    class Ground : Box
     {
-        public static readonly Image[] ASSETS = {
-            Properties.Resources.ground,
-            Properties.Resources.target
-        };
+        public static readonly Image IMAGE_GROUND = Properties.Resources.ground;
 
-        public Target(Position p, Entity e = null) : base(p, e)
+        public Ground(Position p, Entity e = null) : base(p, e)
         {
-            if (Entity is Crate)
-            {
-                ((Crate)Entity).Status = true;
-            }
         }
 
         public override List<Image> Draw()
         {
             List<Image> imgs = new List<Image>();
-            imgs.Add(ASSETS[0]);
-            imgs.Add(ASSETS[1]);
+            imgs.Add(IMAGE_GROUND);
 
             if (Entity != null)
             {

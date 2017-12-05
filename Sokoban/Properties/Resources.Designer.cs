@@ -91,16 +91,13 @@ namespace Sokoban.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à WWWWWWWWWW
-        ///WXXXXXXXXW
-        ///WWWWWWWWWW
-        ///W...X.X..W
-        ///WWWWWWWWWW
-        ///W.P.C.T..W
-        ///WWWWWWWWWW
-        ///W.X....X.W
-        ///W...XX...W
-        ///WWWWWWWWWW.
+        ///   Recherche une chaîne localisée semblable à _______
+        ///WWW____
+        ///WPW____
+        ///W.WWWWW
+        ///W.C..TW
+        ///WWWWWWW
+        ///_______.
         /// </summary>
         internal static string level_1 {
             get {
@@ -109,20 +106,62 @@ namespace Sokoban.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à WWWWWWWWWW
-        ///W....WWWWW
-        ///W..W.C.WWW
-        ///W...X..WWW
-        ///W...WW.WWW
-        ///W..X.PTWWW
-        ///WWWWWWWWWW
-        ///WWWWWWWWWW
-        ///WWWWWWWWWW
-        ///WWWWWWWWWW.
+        ///   Recherche une chaîne localisée semblable à _______
+        ///WWWWWWW
+        ///WP....W
+        ///W.CC.TW
+        ///W..T..W
+        ///WWWWWWW
+        ///_______.
         /// </summary>
         internal static string level_2 {
             get {
                 return ResourceManager.GetString("level_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à ___WWWW
+        ///WWWW.pW
+        ///W..W..W
+        ///W.CW..W
+        ///W..C..W
+        ///W....TW
+        ///WWWWWWW.
+        /// </summary>
+        internal static string level_3 {
+            get {
+                return ResourceManager.GetString("level_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à WWW____
+        ///WpW_WWW
+        ///W.WWWTW
+        ///W.....W
+        ///W.CWC.W
+        ///WW....W
+        ///_WWWWWW.
+        /// </summary>
+        internal static string level_4 {
+            get {
+                return ResourceManager.GetString("level_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à WWWWWW_
+        ///W....WW
+        ///W.W.C.W
+        ///W..X..W
+        ///W..WW.W
+        ///W.X.PTW
+        ///WWWWWWW.
+        /// </summary>
+        internal static string level_5 {
+            get {
+                return ResourceManager.GetString("level_5", resourceCulture);
             }
         }
         

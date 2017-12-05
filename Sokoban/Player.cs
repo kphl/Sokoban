@@ -19,12 +19,9 @@ namespace Sokoban
 
         private Direction direction;
 
-        public Grid Grid { get; set; }
-
-        public Player(Position p, Grid g) : base(p, new List<Image>(ASSETS))
+        public Player(Position p) : base(p, new List<Image>(ASSETS))
         {
             direction = Direction.DOWN;
-            Grid = g;
         }
 
         public override Image Draw()
