@@ -17,9 +17,9 @@ namespace Sokoban
             { Keys.Right, Direction.RIGHT }
         };
 
-        public const int MAX_LEVEL = 4;
+        public const int MAX_LEVEL = 7;
 
-        private int CurrentLevel { get; set; }
+        public int CurrentLevel { get; private set; }
 
         public Grid Grid { get; private set; }
         public List<Movement> moves;

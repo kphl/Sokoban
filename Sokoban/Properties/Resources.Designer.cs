@@ -166,6 +166,36 @@ namespace Sokoban.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à WWWWWWW
+        ///WT....W
+        ///W.C.C.W
+        ///WWWpW.W
+        ///W...C.W
+        ///W.T...W
+        ///WWWWWWW.
+        /// </summary>
+        internal static string level_6 {
+            get {
+                return ResourceManager.GetString("level_6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à WWW____
+        ///WPWW___
+        ///W.TWWWW
+        ///W...C.W
+        ///W..W..W
+        ///W....WW
+        ///WWWWWWW.
+        /// </summary>
+        internal static string level_7 {
+            get {
+                return ResourceManager.GetString("level_7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap player_down {
@@ -201,6 +231,16 @@ namespace Sokoban.Properties {
         internal static System.Drawing.Bitmap player_up {
             get {
                 object obj = ResourceManager.GetObject("player_up", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap playerFace {
+            get {
+                object obj = ResourceManager.GetObject("playerFace", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

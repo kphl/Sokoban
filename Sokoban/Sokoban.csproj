@@ -124,12 +124,6 @@
     <None Include="Resources\block_02.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\font-awesome_4-7-0_refresh_64_0_000000_none.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\font-awesome_4-7-0_refresh_50_0_000000_none.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\level_1.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -148,7 +142,19 @@
     <None Include="Resources\level_5.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icomoon-free_2014-12-23_undo2_50_0_ffffff_none.png" />
+    <None Include="Resources\level_6.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\level_7.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\playerFace.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\font-awesome_4-7-0_undo_40_0_ffffff_none.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icomoon-free_2014-12-23_undo2_40_0_ffffff_none.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

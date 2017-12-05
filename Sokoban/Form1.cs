@@ -21,7 +21,7 @@ namespace Sokoban
             InitializeComponent();
             B = new Bitmap(448, 448);
             G = Graphics.FromImage(B);
-            G.Clear(Color.Pink);
+            G.Clear(Color.Wheat);
             pictureBox1.Image = B;
             game = new Game();
             game.Draw(G);
@@ -30,7 +30,7 @@ namespace Sokoban
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            G.Clear(Color.Pink);
+            G.Clear(Color.Wheat);
 
             if(e.KeyCode == Keys.Back)
             {
@@ -42,6 +42,7 @@ namespace Sokoban
                 if (e.KeyCode == Keys.Enter)
                 {
                     game.LoadNextLevel();
+                    label2.Text = "LEVEL " + game.CurrentLevel.ToString();
                     game.Draw(G);
                     label1.Text = game.moves.Count.ToString();
                     pictureBox1.Invalidate();

@@ -9,8 +9,6 @@ namespace Sokoban
 {
     public class Box
     {
-        //public static readonly Image IMAGE_GROUND = Properties.Resources.ground;
-
         public Entity Entity { get; set; }
         public Position Pos { get; }
 
