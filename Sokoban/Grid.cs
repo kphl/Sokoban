@@ -8,7 +8,7 @@ namespace Sokoban
 {
     public class Grid
     {
-        public Box[,] Boxes { get; set; }
+        public Box[,] Boxes { get; private set; }
 
         public Grid(String[] level)
         {
@@ -48,6 +48,11 @@ namespace Sokoban
                     }
                 }
             }
+        }
+
+        public Box Box(int x, int y)
+        {
+            return Boxes[y, x];
         }
 
         public Player getPlayer()

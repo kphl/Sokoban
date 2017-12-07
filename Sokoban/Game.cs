@@ -41,7 +41,7 @@ namespace Sokoban
             ++CurrentLevel;
             if (CurrentLevel > MAX_LEVEL)
             {
-                throw new Exception("You win !");
+                return;
             }
 
             LoadLevel(CurrentLevel);
@@ -74,9 +74,9 @@ namespace Sokoban
                     break;
             }
 
-            Box start = Grid.Boxes[player.Pos.Y, player.Pos.X];
+            Box start = Grid.Box(player.Pos.X, player.Pos.Y);
             Position p = pos + player.Pos;
-            Box end = Grid.Boxes[p.Y, p.X];
+            Box end = Grid.Box(p.X, p.Y);
 
             if (player.Move(d, end))
             {
@@ -86,9 +86,9 @@ namespace Sokoban
                 if (end.Entity is Crate)
                 {
                     Crate c = end.Entity as Crate;
-                    Box startC = Grid.Boxes[c.Pos.Y, c.Pos.X];
+                    Box startC = Grid.Box(c.Pos.X, c.Pos.Y);
                     Position pC = pos + c.Pos;
-                    Box endC = Grid.Boxes[pC.Y, pC.X];
+                    Box endC = Grid.Box(pC.X, pC.Y);
 
                     if (c.Move(d, endC))
                     {
@@ -131,6 +131,10 @@ namespace Sokoban
             if (DIC_KEY_DIR.Keys.Contains(key))
             {
                 Move(DIC_KEY_DIR[key]);
+            }
+            else if(key == Keys.Back)
+            {
+                Undo();
             }
         }
 
